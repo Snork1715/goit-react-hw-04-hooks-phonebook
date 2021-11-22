@@ -66,14 +66,9 @@ export default function Phonebook() {
   };
 
   const deleteContact = (contactId) => {
-    setContacts((prev) => {
-      console.log("prev", prev);
-      prev.filter((cont) => cont.id !== contactId);
-    });
-    // const deletedContacts = contacts.filter(
-    //   (contact) => contact.id !== contactId
-    // );
-    // setContacts(deletedContacts);
+    setContacts((prevContacts) =>
+      prevContacts.filter((i) => i.id !== contactId)
+    );
   };
 
   const normalizedFilter = filter.toLowerCase();
@@ -81,7 +76,6 @@ export default function Phonebook() {
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(normalizedFilter)
   );
-
   return (
     <div className="phonebook-warper">
       <div className="phonebook-form">
